@@ -16,7 +16,6 @@ char * copy(char *dest, char *source){
   for (i=0; i<len(source)+1; i++){
 
     dest[i] = source[i];
-    printf("%c and %c\n",dest[i],source[i] );
   }
   return dest;
 }
@@ -49,23 +48,32 @@ char * concatenate(char *dest, char *source){
 
 int compare (char *s1, char *s2){
   int i;
-  for (i = 0; s1[i]!='\0' || s2[i]!='\0'; i++) {
-    if (s1[i] < s2[i]) {
-      return -1;
-    }
-    if (s1[i] > s2[i]){
-      return 1;
+  int lenOfShorter;
+  if (len(s1) > len(s2)) {
+    lenOfShorter = len(s2);
+  } else{
+    lenOfShorter = len(s1);
+  }
+  for (i = 0; i < lenOfShorter; i++) {
+    if (s1[i] != s2[i]) {
+      return s1[i] - s2[i];
     }
   }
-  return 0;
+  if (len(s1) < len(s2)) {
+    return s2[i];
+  } else if(len(s2) < len(s1)) {
+    return s1[i];
+  } else {
+    return 0;
+  }
 }
 
 char * locate(char *s, char c){
   int i;
-  char *p;
+  char *p = NULL;
   for (i = 0; s[i] != '\0'; i++) {
     if (s[i] == c) {
-      p = i + s;
+      p = &(s[i]);
       return p;
     }
   }
@@ -74,8 +82,6 @@ char * locate(char *s, char c){
 int locate_n(char *s, char c, int n){
   int i;
   for (i = 0; s[i] != '\0'; i++) {
-    //printf("%c\n",s[i] );
-    //printf("%d\n",i );
     if (s[i] == c) {
       n--;
     }
