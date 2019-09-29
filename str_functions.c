@@ -13,23 +13,37 @@ int len(char *s){
 
 char * copy(char *dest, char *source){
   int i;
-  for (i=0; i<len(source); i++){
+  for (i=0; i<len(source)+1; i++){
+
     dest[i] = source[i];
-    printf("%c", dest[i]);
+    printf("%c and %c\n",dest[i],source[i] );
   }
-  dest[len(source)] = '\0';
+  return dest;
+}
+char * copy_n(char *dest, char *source, int n){
+  int i;
+  for (i=0; i<n; i++){
+    dest[i] = source[i];
+  }
+  dest[n] = '\0';
   return dest;
 }
 
 char * concatenate_n(char *dest, char *source, int n){
   int i;
   int l = len(dest);
-  printf("%s", dest);
   for (i = 0; i < n; i++) {
     dest[l + i] = source[i];
-    printf("%c", dest[l+i]);
   }
   dest[l + n] = '\0';
+  return dest;
+}
+char * concatenate(char *dest, char *source){
+  int i;
+  int l = len(dest);
+  for (i = 0; i < len(source)+1; i++) {
+    dest[(l) + i] = source[i];
+  }
   return dest;
 }
 
@@ -52,10 +66,43 @@ char * locate(char *s, char c){
   for (i = 0; s[i] != '\0'; i++) {
     if (s[i] == c) {
       p = i + s;
-      printf("%s\n", p);
       return p;
     }
   }
-  printf("%s\n", p);
+  return p;
+}
+int locate_n(char *s, char c, int n){
+  int i;
+  for (i = 0; s[i] != '\0'; i++) {
+    //printf("%c\n",s[i] );
+    //printf("%d\n",i );
+    if (s[i] == c) {
+      n--;
+    }
+    if (n==0){
+      return i;
+    }
+  }
+  return -1;
+}
+char* strstrs(char *haystack, char *needle){
+  char *p=NULL;
+  int i;
+  int x=1;
+  int w;
+  for (x = 1; i !=-1; x++) {
+      i=locate_n(haystack,needle[0],x);
+      if (i<len(haystack)-len(needle)+1) {
+        for (w = 0; w < len(needle); w++) {
+          if(haystack[i+w]!=needle[w]){
+            w=len(haystack);
+          }
+        }
+        if (w<len(haystack)) {
+          p=&(haystack[i]);
+          return p;
+        }
+      }
+  }
   return p;
 }
