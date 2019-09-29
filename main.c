@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]) {
   //test for len
   char str1[100] = "happiness";
   char str2[100] = "sadness";
-  char str3[1] = "";
+  char str3[10] = "";
   printf("str1: [happiness]\n");
   printf("str2: [sadness]\n");
   printf("str3: []\n");
