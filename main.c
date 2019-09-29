@@ -1,103 +1,176 @@
- #include <stdio.h>
+//Amanda Zheng and Yifan Wang
+
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "header.h"
 
 int main(int argc, char const *argv[]) {
+
+  //test for len
   char str1[100] = "happiness";
   char str2[100] = "sadness";
   char str3[1] = "";
-  char str4[100] = "anger";
-  char str5[20] = "data";
-  char str6[20] = "Data";
-  char str7[100]="suprise";
-  char str8[20] = "itemize";
-  char str9[20] = "itemize";
-  char str10[20] = "pair programming";
-  char str11[20] = "gram";
-  char str12[20] = "par";
-  char str13[20] = "hello";
-  char str14[20] = "universe";
-  int i;
-
-  //test for len
-  printf("This is the test for the length of a string:\n");
-  printf("The length of the string \"happiness\" is: %d\n",len(str1));
-  printf("The length of the string \"sadness\" is: %d\n",len(str2));
-  printf("The length of a empty string is: %d\n\n",len(str3));
+  printf("str1: [happiness]\n");
+  printf("str2: [sadness]\n");
+  printf("str3: []\n");
+  printf("Testing strlen(str1):\n");
+  printf("Mine: [%d]\n",len(str1));
+  printf("Standard: [%d]\n\n",strlen(str1));
+  printf("Testing strlen(str2):\n");
+  printf("Mine: [%d]\n",len(str2));
+  printf("Standard: [%d]\n\n",strlen(str2));
+  printf("Testing strlen(str3):\n");
+  printf("Mine: [%d]\n",len(str3));
+  printf("Standard: [%d]\n\n",strlen(str3));
+  printf("-------------------------------------------\n");
 
   //test for copy
-  printf("This is the test for copying an entire string:\n");
-  printf("Copying string \"happiness\":\n");
-  copy(str3,str1);
-  for (i = 0; i < len(str3); i++) {
-    printf("%c",str3[i] );
-  }
-  printf("\n");
-  printf("Copying string \"sadness\":\n");
-  copy(str3,str2);
-  printf("this is string %d\n", len(str3));
-  for (i = 0; i < len(str3); i++) {
-    printf("%c",str3[i] );
-  }
-  printf("\n\n" );
+  printf("str1: [happiness]\n");
+  printf("str2: [sadness]\n");
+  printf("str3: []\n");
+  printf("Testing strcpy(str3,str1):\n");
+  printf("Mine: [%s]\n",copy(str3,str1));
+  strcpy(str3,"");
+  printf("Standard: [%s]\n\n",strcpy(str3,str1));
+  strcpy(str3,"");
+  printf("Testing strcpy(str3,str2)\n");
+  printf("Mine: [%s]\n",copy(str3,str2));
+  strcpy(str3,"");
+  printf("Standard: [%s]\n\n",strcpy(str3,str2));
+  strcpy(str3,"");
+  printf("Testing strcpy(str1,str3)\n");
+  printf("Mine: [%s]\n",copy(str1,str3));
+  strcpy(str1,"happiness");
+  printf("Standard: [%s]\n\n",strcpy(str1,str3));
+  printf("-------------------------------------------\n");
 
   //test for copy_n
-  printf("This is the test for copying part of a string:\n" );
-  printf("Copying \"happi\" from string \"happiness\" \n");
-  copy_n(str3,str1,5);
-  for (i = 0; i < len(str3); i++) {
-    printf("%c",str3[i] );
-  }
-  printf("\n");
-  printf("Copying string \"sad\" \n");
-  copy_n(str3,str2,3);
-  for (i = 0; i < len(str3); i++) {
-    printf("%c",str3[i] );
-  }
-  printf("\n\n" );
+  char str4[100] = "Wonderful";
+  char str5[100] = "Snowing";
+  char str6[100] = "Birthday";
+  printf("str4: [Wonderful]\n");
+  printf("str5: [Snowing]\n");
+  printf("str6: [Birthday]\n");
+  printf("Testing strncpy(str5,str4,5):\n");
+  printf("Mine: [%s]\n",copy_n(str5,str4,5));
+  strcpy(str5,"Snowing");
+  printf("Standard: [%s]\n\n",strncpy(str5,str4,5));
+  strcpy(str5,"Snowing");
+  printf("Testing strncpy(str5,str6,6):\n");
+  printf("Mine: [%s]\n",copy_n(str5,str6,6));
+  strcpy(str5,"Snowing");
+  printf("Standard: [%s]\n\n",strncpy(str5,str6,6));
+  strcpy(str5,"Snowing");
+  printf("Testing strncpy(str6,str4,7):\n");
+  printf("Mine: [%s]\n",copy_n(str6,str4,7));
+  strcpy(str6,"Birthday");
+  printf("Standard: [%s]\n\n",strncpy(str6,str4,7));
+  printf("-------------------------------------------\n");
 
   //test for concatenate
-  printf("The test for concatenating a string and another string:\n");
-  printf("Concatenating \"happiness\" and \"sad\"");
-  concatenate(str1, str3);
-  for (i = 0; i < len(str1); i++) {
-    printf("%c",str1[i] );
-  }
-  printf("\n" );
-  printf("Concatenating \"happinesssad\" with \"anger\":" );
-  concatenate(str1,str4);
-  for (i = 0; i < len(str1); i++) {
-    printf("%c",str1[i] );
-  }
-  printf("\n\n" );
+  char str7[100] = "Super";
+  char str8[100] = "Woman";
+  char str9[100] = "Man";
+  printf("str7: [Super]\n");
+  printf("str8: [Woman]\n");
+  printf("str9: [Man]\n");
+  printf("Testing strcat(str7,str8):\n");
+  printf("Mine: [%s]\n",concatenate(str7,str8));
+  strcpy(str7,"Super");
+  printf("Standard: [%s]\n\n",strcat(str7,str8));
+  printf("Testing strcat(str7,str9):\n");
+  strcpy(str7,"Super");
+  printf("Mine: [%s]\n",concatenate(str7,str9));
+  strcpy(str7,"Super");
+  printf("Standard: [%s]\n\n",strcat(str7,str9));
+  printf("Testing strcat(str8,str9):\n");
+  strcpy(str7,"Super");
+  printf("Mine: [%s]\n",concatenate(str8,str9));
+  strcpy(str8,"Woman");
+  printf("Standard: [%s]\n\n",strcat(str8,str9));
+  printf("-------------------------------------------\n");
 
   //test for concatenate_n
-  printf("The test for concatenating a string and part of a string:\n ");
-  printf("Concatenating \"hello\" with first five letters of \"universe\"\n");
-  concatenate_n(str13, str14, 5);
-  for (i = 0; i < len(str13); i++) {
-    printf("%c",str13[i] );
-  }
-  printf("\n\n");
+  char str10[100] = "Cat";
+  char str11[100] = "Fishies";
+  char str12[100] = "Dog";
+  printf("str10: [Cat]\n");
+  printf("str11: [Fishies]\n");
+  printf("str12: [Dog]\n");
+  printf("Testing strncat(str10,str11,4):\n");
+  printf("Mine: [%s]\n",concatenate_n(str10,str11,4));
+  strcpy(str10,"Cat");
+  printf("Standard: [%s]\n\n",strncat(str10,str11,4));
+  strcpy(str10,"Cat");
+  printf("Testing strncat(str12,str11,4):\n");
+  printf("Mine: [%s]\n",concatenate_n(str12,str11,4));
+  strcpy(str12,"Dog");
+  printf("Standard: [%s]\n\n",strncat(str12,str11,4));
+  printf("Testing strncat(str10,str12,2):\n");
+  strcpy(str12,"Dog");
+  printf("Mine: [%s]\n",concatenate_n(str10,str12,2));
+  strcpy(str10,"Cat");
+  printf("Standard: [%s]\n\n",strncat(str10,str12,2));
+  printf("-------------------------------------------\n");
 
   //tests for compare
-  printf("The test for comparing:\n");
-  printf("Comparing \"data\" with \"Data\": %d, %d\n", compare(str5, str6),strcmp(str5,str6));
-  printf("Comparing \"anger\" with \"suprise\": %d,%d\n",compare(str4, str7),strcmp(str4,str7));
-  printf("Comparing \"itemize\" with \"itemize\": %d,%d\n\n", compare(str8, str9),strcmp(str8,str9));
+  char str13[100] = "Item";
+  char str14[100] = "Itemize";
+  char str15[100] = "Itemize";
+  char str16[100] = "itemize";
+  char str17[100] = "stuff";
+  printf("str13: [Item]\n");
+  printf("str14: [Itemize]\n");
+  printf("str15: [Itemize]\n");
+  printf("str16: [itemize]\n");
+  printf("str17: [stuff]\n");
+  printf("Testing strcmp(str13,str14):\n");
+  printf("Mine: [%d]\n",compare(str13,str14));
+  printf("Standard: [%d]\n\n",strcmp(str13,str14));
+  printf("Testing strcmp(str13,str16):\n");
+  printf("Mine: [%d]\n",compare(str13,str16));
+  printf("Standard: [%d]\n\n",strcmp(str13,str16));
+  printf("Testing strcmp(str13,str17):\n");
+  printf("Mine: [%d]\n",compare(str13,str17));
+  printf("Standard: [%d]\n\n",strcmp(str13,str17));
+  printf("Testing strcmp(str14,str15):\n");
+  printf("Mine: [%d]\n",compare(str14,str15));
+  printf("Standard: [%d]\n\n",strcmp(str14,str15));
+  printf("-------------------------------------------\n");
 
   //test for locate
-  char *p=&(str10[11]);
-  printf("The test for locating first occurence of a single character in a string\n");
-  printf("Pointer of \"m\" in \"pair programming\": %p \n Locating \"m\" in \"pair programming\": %p\n",p,locate(str10, 'm'));
-  printf("Locating \"x\" in \"pair programming\": %p\n\n", locate(str10, 'x'));
+  char str18[100] = "Universe";
+  printf("str18: [Universe]\n");
+  printf("Testing strchr(str18,\'U\'):\n");
+  printf("Mine: [%p]\n",locate(str18,'U'));
+  printf("Standard: [%p]\n\n",strchr(str18,'U'));
+  printf("Testing strchr(str18,\'u\'):\n");
+  printf("Mine: [%p]\n",locate(str18,'u'));
+  printf("Standard: [%p]\n\n",strchr(str18,'u'));
+  printf("Testing strchr(str18,\'r\'):\n");
+  printf("Mine: [%p]\n",locate(str18,'r'));
+  printf("Standard: [%p]\n\n",strchr(str18,'r'));
+  printf("Testing strchr(str18,\'x\'):\n");
+  printf("Mine: [%p]\n",locate(str18,'x'));
+  printf("Standard: [%p]\n\n",strchr(str18,'x'));
+  printf("-------------------------------------------\n");
 
   // test for strstrs
-  p=&(str10[8]);
-  printf("The test for locating first occurence of a substring in a string\n");
-  printf("Pointer of \"gram\" in \"pair programming\": %p\n Locating \"gram\" in \"pair programming\": %p\n",p,strstrs(str10,str11));
-  printf("Locating \"par\" in \"pair programming\":%p\n\n", strstrs(str10,str12));
+  char str19[100] = "Pair Programming";
+  char str20[100] = "gram";
+  char str21[100] = "par";
+  printf("str19: [Pair Programming]\n");
+  printf("str20: [gram]\n");
+  printf("str21: [par]\n");
+  printf("Testing strstr(str19,str20):\n");
+  printf("Mine: [%p]\n",strstrs(str19,str20));
+  printf("Standard: [%p]\n\n",strstr(str19,str20));
+  printf("Testing strstr(str19,str21):\n");
+  printf("Mine: [%p]\n",strstrs(str19,str21));
+  printf("Standard: [%p]\n\n",strstr(str19,str21));
+  printf("-------------------------------------------\n");
+
 
   return 0;
 }
