@@ -16,13 +16,13 @@ int main(int argc, char const *argv[]) {
   printf("str3: []\n");
   printf("Testing strlen(str1):\n");
   printf("Mine: [%d]\n",len(str1));
-  printf("Standard: [%d]\n\n",strlen(str1));
+  printf("Standard: [%lu]\n\n",strlen(str1));
   printf("Testing strlen(str2):\n");
   printf("Mine: [%d]\n",len(str2));
-  printf("Standard: [%d]\n\n",strlen(str2));
+  printf("Standard: [%lu]\n\n",strlen(str2));
   printf("Testing strlen(str3):\n");
   printf("Mine: [%d]\n",len(str3));
-  printf("Standard: [%d]\n\n",strlen(str3));
+  printf("Standard: [%lu]\n\n",strlen(str3));
   printf("-------------------------------------------\n");
 
   //test for copy
