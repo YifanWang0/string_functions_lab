@@ -13,10 +13,11 @@ int len(char *s){
 
 char * copy(char *dest, char *source){
   int i;
-  for (i=0; i<len(source)+1; i++){
+  for (i=0; i<len(source); i++){
 
     dest[i] = source[i];
   }
+  dest[len(source)]='\0';
   return dest;
 }
 char * copy_n(char *dest, char *source, int n){
@@ -24,7 +25,6 @@ char * copy_n(char *dest, char *source, int n){
   for (i=0; i<n; i++){
     dest[i] = source[i];
   }
-  dest[n] = '\0';
   return dest;
 }
 
@@ -60,7 +60,7 @@ int compare (char *s1, char *s2){
     }
   }
   if (len(s1) < len(s2)) {
-    return s2[i];
+    return -1*s2[i];
   } else if(len(s2) < len(s1)) {
     return s1[i];
   } else {
